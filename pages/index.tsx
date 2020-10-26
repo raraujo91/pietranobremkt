@@ -32,17 +32,22 @@ type InstagramData = {
 }
 
 export const getServerSideProps = async () => {
-	const request = await fetch(url);
+	// const request = await fetch(url);
 
-	const instagramResponse: InstagramData = await request.json();
+	// const instagramResponse: InstagramData = await request.json();
 	
-	const { full_name, profile_pic_url, username  } = instagramResponse.graphql.user;
+	// const { full_name, profile_pic_url, username  } = instagramResponse.graphql.user;
 
-	const instagramTimelineMediaEdges = instagramResponse.graphql.user.edge_owner_to_timeline_media.edges;
+	// const instagramTimelineMediaEdges = instagramResponse.graphql.user.edge_owner_to_timeline_media.edges;
 
-	const instagramThumbs = instagramTimelineMediaEdges.slice(0,9).map(edge => {
-		return edge.node.thumbnail_resources[0].src
-	})
+	// const instagramThumbs = instagramTimelineMediaEdges.slice(0,9).map(edge => {
+	// 	return edge.node.thumbnail_resources[0].src
+	// })
+
+	const full_name = "Posicionamento Digital";
+	const username = "pietranobre_";
+	const profile_pic_url = "https://instagram.fgru5-1.fna.fbcdn.net/v/t51.2885-19/s150x150/101985646_2585759718405843_284970988804631656_n.jpg?_nc_ht=instagram.fgru5-1.fna.fbcdn.net&_nc_ohc=gPVyxUbdR0cAX-FFJGg&oh=febaf285ce75fae9af1c4d98b0834bc6&oe=5FBF1641";
+	const instagramThumbs = [];
 
 	return {
 		props: {
@@ -64,7 +69,7 @@ export default function Home({ instagram }) {
 		  <About />
 		  <Courses />
 		  <Newsletter />
-		  <Instagram data={instagram} />
+		  {/* <Instagram data={instagram} /> */}
 		  <Footer data={instagram} />
 	  </>
 	)
